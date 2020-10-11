@@ -1,5 +1,3 @@
-import java.util.Random;
-
 int numFrames = 6;  // The number of frames in the animation
 int currentFrame = 0;
 PImage[] images = new PImage[numFrames];
@@ -28,7 +26,7 @@ void setup() {
       for (int x = 20; x < 600; x += 200){
         Die d = new Die(x, y);
         //println(d.value);
-        total += d.value;
+        total += d.value + 1;
         d.show();
       }
     }
@@ -54,8 +52,8 @@ void setup() {
   Die(int x, int y){
     dx = x;
     dy = y;
-    Random rand = new Random();
-    this.value = rand.nextInt((5 - 0) + 0) + 0;
+    
+    this.value = (int) (Math.random() * 6);
     this.img = images[this.value];
   }
   
